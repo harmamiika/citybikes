@@ -5,7 +5,7 @@ export const siteConfig = {
   description: "Citybikes",
   mainNav: [
     {
-      title: "Station list",
+      title: "Stations",
       href: "/",
     },
   ],

@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/table"
 
 // todos:
-// add icons
+// add icons / make table links more link-like
 // possible refactoring
 // error handling?
 // layout fix?
@@ -21,7 +21,8 @@ export default async function IndexPage() {
   const stations = await getStations()
 
   return (
-    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10 flex-col">
+    <section className="gap-6 pb-8 pt-6">
+      <h1 className="text-4xl font-bold">Stations</h1>
       <Table>
         <TableHeader>
           <TableRow>
