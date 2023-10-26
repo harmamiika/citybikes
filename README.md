@@ -6,7 +6,7 @@ Helsinki area city bikes stop information.
 
 - TypeScript
 - React server components & Next.js 13 App Directory
-- Tailwind CSS
+- Tailwind CSS & Shadcn/ui
 - Project initiated from <span><a href="https://github.com/shadcn/next-template">https://github.com/shadcn/next-template</a></span>
 
 ## How to run
