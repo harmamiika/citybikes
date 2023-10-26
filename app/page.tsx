@@ -1,42 +1,23 @@
 import Link from "next/link"
-import { Pool } from "pg"
+import { getStations } from "@/utils/database"
 
-import { siteConfig } from "@/config/site"
-import { buttonVariants } from "@/components/ui/button"
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
 
-const pool = new Pool({
-  user: "academy",
-  host: "localhost",
-  database: "citybike",
-  password: "academy",
-  port: 5432,
-})
-
-interface IStation {
-  id: number
-  station_name: string
-  station_address: string
-  coordinate_x: string
-  coordinate_y: string
-}
-
 // todos:
-// single page view with link
-// cleanup header
 // add icons
+// add loaders?
+// possible refactoring
+// error handling?
 
 export default async function IndexPage() {
-  const result = await pool.query("SELECT * FROM station")
-  const stations = result.rows as IStation[]
+  const stations = await getStations()
 
   console.log(stations[0])
 
