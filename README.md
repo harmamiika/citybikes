@@ -1,22 +1,26 @@
-# next-template
+# Citybikes
 
-A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
+Helsinki area city bikes stop information.
 
-## Usage
+## Technologies used
+
+- TypeScript
+- React server components & Next.js 13 App Directory
+- Tailwind CSS
+- Project initiated from <span><a href="https://github.com/shadcn/next-template">https://github.com/shadcn/next-template</a></span>
+
+## How to run
+
+1. Clone this project
+2. With npm installed, install dependencies
 
 ```bash
-npx create-next-app -e https://github.com/shadcn/next-template
+npm i
 ```
 
-## Features
+3. Run DB instance based on instructions here <span><a href="https://github.com/solita/dev-academy-spring-2024-exercise">https://github.com/solita/dev-academy-spring-2024-exercise</a></span>
+4. Run the project with
 
-- Next.js 13 App Directory
-- Radix UI Primitives
-- Tailwind CSS
-- Icons from [Lucide](https://lucide.dev)
-- Dark mode with `next-themes`
-- Tailwind CSS class sorting, merging and linting.
-
-## License
-
-Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
+```bash
+npm run dev
+```
