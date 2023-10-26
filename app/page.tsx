@@ -11,18 +11,14 @@ import {
 } from "@/components/ui/table"
 
 // todos:
-// add icons / make table links more link-like
-// possible refactoring
-// error handling?
-// layout fix?
 // readme and instructions
 
 export default async function IndexPage() {
   const stations = await getStations()
 
   return (
-    <section className="gap-6 pb-8 pt-6">
-      <h1 className="text-4xl font-bold">Stations</h1>
+    <section className="gap-4">
+      <h1 className="text-4xl font-bold pb-2">Stations</h1>
       <Table>
         <TableHeader>
           <TableRow>
@@ -33,7 +29,7 @@ export default async function IndexPage() {
         <TableBody>
           {stations.map((station) => (
             <TableRow>
-              <TableCell className="font-medium">
+              <TableCell className="font-medium hover:underline">
                 <Link href={`/station/${station.id}`}>
                   {station.station_name}
                 </Link>

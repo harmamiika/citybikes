@@ -44,7 +44,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
               <div className="flex-1">
-                <div className="container grid items-center">{children}</div>
+                <div className="container grid items-center pt-6 gap-y-4">
+                  {children}
+                </div>
               </div>
             </div>
             <TailwindIndicator />
