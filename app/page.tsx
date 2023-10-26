@@ -12,14 +12,13 @@ import {
 
 // todos:
 // add icons
-// add loaders?
 // possible refactoring
 // error handling?
+// layout fix?
+// readme and instructions
 
 export default async function IndexPage() {
   const stations = await getStations()
-
-  console.log(stations[0])
 
   return (
     <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10 flex-col">
