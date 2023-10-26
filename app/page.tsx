@@ -10,9 +10,6 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
-// todos:
-// readme and instructions
-
 export default async function IndexPage() {
   const stations = await getStations()
 
