@@ -24,36 +24,30 @@ const pool = new Pool({
   port: 5432,
 })
 
-export async function getStations(): Promise<IStation[]> {
-  const { rows } = await pool.query("SELECT * FROM station")
-  return rows
-}
+export const getStations = async (): Promise<IStation[]> =>
+  (await pool.query("SELECT * FROM station")).rows
 
-export async function getStationInfo(id: number): Promise<IStationInfo> {
-  const { station_name, station_address } = (
+export const getStationInfo = async (id: number): Promise<IStationInfo> => {
+  const {
+    station_name,
+    station_address,
+    total_journeys,
+    average_distance,
+    average_duration,
+  } = (
     await pool.query(
-      `SELECT station_name, station_address FROM station WHERE id = $1`,
-      [id]
-    )
-  ).rows[0]
-
-  const { total_journeys } = (
-    await pool.query(
-      "SELECT COUNT(*) AS total_journeys FROM journey WHERE departure_station_id = $1",
-      [id]
-    )
-  ).rows[0]
-
-  const { average_distance } = (
-    await pool.query(
-      "SELECT AVG(distance) AS average_distance FROM journey WHERE departure_station_id = $1",
-      [id]
-    )
-  ).rows[0]
-
-  const { average_duration } = (
-    await pool.query(
-      "SELECT AVG(duration) AS average_duration FROM journey WHERE departure_station_id = $1",
+      `
+  SELECT
+    s.station_name,
+    s.station_address,
+    COUNT(j.id) AS total_journeys,
+    AVG(j.distance) AS average_distance,
+    AVG(j.duration) AS average_duration
+  FROM station AS s
+  LEFT JOIN journey AS j ON s.id = j.departure_station_id
+  WHERE s.id = $1
+  GROUP BY s.station_name, s.station_address;
+`,
       [id]
     )
   ).rows[0]
