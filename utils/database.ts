@@ -27,14 +27,8 @@ const pool = new Pool({
 export const getStations = async (): Promise<IStation[]> =>
   (await pool.query("SELECT * FROM station")).rows
 
-export const getStationInfo = async (id: number): Promise<IStationInfo> => {
-  const {
-    station_name,
-    station_address,
-    total_journeys,
-    average_distance,
-    average_duration,
-  } = (
+export const getStationInfo = async (id: number): Promise<IStationInfo> =>
+  (
     await pool.query(
       `
   SELECT
@@ -51,12 +45,3 @@ export const getStationInfo = async (id: number): Promise<IStationInfo> => {
       [id]
     )
   ).rows[0]
-
-  return {
-    station_name,
-    station_address,
-    total_journeys,
-    average_distance,
-    average_duration,
-  }
-}
