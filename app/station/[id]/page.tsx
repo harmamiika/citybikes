@@ -36,7 +36,7 @@ export default async function StationPage({
         </CardContent>
       </Card>
 
-      <Link href="/" className="underline">
+      <Link href="/" className="hover:underline">
         Back to stations
       </Link>
     </>
