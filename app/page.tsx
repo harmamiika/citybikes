@@ -25,7 +25,7 @@ export default async function IndexPage() {
         </TableHeader>
         <TableBody>
           {stations.map((station) => (
-            <TableRow>
+            <TableRow key={station.id}>
               <TableCell className="font-medium hover:underline">
                 <Link href={`/station/${station.id}`}>
                   {station.station_name}
